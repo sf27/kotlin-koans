@@ -1,5 +1,7 @@
 package ii_collections
 
+import ii_collections.data.orderedProducts
+
 fun example8() {
     val numbers = listOf(1, 3, -4, 2, -11)
 
@@ -12,5 +14,7 @@ fun example8() {
 
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
     // Return customers who have more undelivered orders than delivered
-    todoCollectionTask()
+    // todoCollectionTask()
+    val (result, _0) = getSetOfCustomers().partition { it.orders.count { !it.isDelivered } > 0 }
+    return result.toSet()
 }
